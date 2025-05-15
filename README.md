@@ -2,12 +2,12 @@
 # Proyecto Final: El Baile De Las Flores
 Proyecto final de la asignatura Inteligencia Artificial para Videojuegos.
 
-(Imagen Abeja)
+![diagram](./Imagenes/Abeja.png)
 
 ## Autor
 Nahia Iglesias Calvo
-GitHub: nahigles https://github.com/nahigles
-Correo: nahigles@ucm.es
+* GitHub: nahigles https://github.com/nahigles
+* Correo: nahigles@ucm.es
 
 ## Resumen
 Este proyecto es la práctica final de la asignatura de Inteligencia Artificial para Videojuegos del Grado en Desarrollo de Videojuegos de la UCM.
@@ -41,18 +41,24 @@ Para este proyecto, me he centrado en la danza de las abejas, esa interesante ma
 ### El baile de la abeja
 Cuando una abeja obrera encuentra una flor con néctar o polen o cualquier otro tipo de alimento, vuelve a la colmena e informa a las demás abejas utilizando la danza. Las demás abejas imitan su movimiento para que les llegue el mensaje a todas y lo puedan interpretar. 
 La danza se realiza sobre el panal y puede haber dos tipos dependiendo de la distancia a la que se encuentra el alimento.
-Danza en círculo
+* __Danza en círculo__
 Esta danza consiste en movimientos circulares y la hacen si el alimento se encuentra a menos de 100 metros de la colmena. Las compañeras al interpretar este mensaje vuelan en círculo alrededor del panal buscando la comida.
-Danza en ocho
+* __Danza en ocho__
 Es la danza más conocida de las abejas, la realizan si el alimento está situado a una distancia mayor que 100 metros de la colmena y con ella comunican exactamente la dirección y la distancia a la que se encuentra la comida.
 La danza sigue un patrón en forma de medio círculo como se puede ver en la siguiente imagen y la realizan a distintos ángulos sobre el panal.
 Las líneas curvas del centro del círculo indican el movimiento del abdomen de las abejas.
 
+![diagram](./Imagenes/Danza.jpg) ![diagram](./Imagenes/Danza2.jpg)
+
 #### _Distancia_
 La distancia del alimento es proporcional a la velocidad a la que realizan el baile. Si es más rápido, el alimento está más cerca, y si es más lento está a más distancia.
 
+![diagram](./Imagenes/DireccionDistanciaAngulo.png)
+
 #### _Dirección_
 Para la dirección del alimento lo indican con el ángulo que forman el eje Y de la colmena y el centro del baile. Ese mismo ángulo equivale al ángulo que hay entre el sol y el alimento tomando como centro la colmena.
+
+![diagram](./Imagenes/DistancaDireccion.jpg)
 
 En resumen, las abejas utilizan una variedad de métodos de comunicación para mantener la organización social y la cooperación en la colmena. El método de la danza permite a la colmena conseguir comida en grupo para que pueda seguir desarrollándose.
 
@@ -63,7 +69,7 @@ El punto de partida serán varios scripts de la [Práctica 1]([https://narratech
 
 ### Diagrama de clases:
 
-![diagram](./imgs/UML.jpg)
+![diagram](./Imagenes/UML.png)
 
 
 ### Agente
@@ -108,6 +114,8 @@ Tenemos un campo con flores, la colmena y las abejas controladas por IA. Se quie
 Para crear el campo con flores utilizaré hierba, flores y modelos creados por terceros a excepción de la colmena. Todos los modelos utilizados están en las referencias.
 
 La interfaz estará hecha con UI Document y la diseñaré con los botones +, -, Cambio de cámara, Métricas, Adelantar Tiempo y Lluvia.
+
+![diagram](./Imagenes/InterfazCampo.jpg)
 
 Tendré una lista de GameObjects Abejas, cada vez que se pulse el + instanciaré una de ellas y en caso de pulsar - destruiré una en caso de que haya algún GameObject en la lista abejas. 
 
@@ -158,6 +166,8 @@ class Game Manager:
 Para la colmena, habrá un contador interno que irá guardando la cantidad de comida. La colmena tendrá un mínimo y un máximo que se reflejará en la UI con una barra.
 
 Cada vez que una abeja vuelva con comida a la colmena se sumará 1 al contador, y se restará 1 por cada abeja viva cada 24h.
+
+![diagram](./Imagenes/InterfazColmena.jpg)
 
 * __C.__
 Para las flores las abejas tendrán un Trigger y en caso de que entre en contacto con una flor, mirará si tiene comida para recogerla.
@@ -494,10 +504,8 @@ Los recursos de terceros utilizados son de uso público.
 
 * [Panal](https://poly.pizza/m/6Mqdrv1n3Oo)
 
-#### Imágenes
+#### Información e Imágenes abejas
 * [Abeja Real](https://www.earth.com/news/mysterious-origins-of-western-honey-bees-revealed/)
-
-#### Información Abejas
 * [Baile de las abejas](https://tierrasapicolas.com/karl-von-frisch-y-la-danza-de-las-abejas/)
 * [Wikipedia](https://es.wikipedia.org/wiki/Danza_de_la_abeja)
 * [Video Animación Danza Abejas](https://youtu.be/6Lnq_zZlYa4)
