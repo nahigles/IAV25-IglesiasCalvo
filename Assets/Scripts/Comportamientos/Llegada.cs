@@ -8,6 +8,7 @@
    Autor: Federico Peinado 
    Contacto: email@federicopeinado.com
 */
+using System;
 using UnityEngine;
 
 namespace UCM.IAV.Movimiento
@@ -31,7 +32,7 @@ namespace UCM.IAV.Movimiento
 
         public void Start()
         { 
-            enabled = false;
+            //enabled = false;
         }
 
         public override ComportamientoDireccion GetComportamientoDireccion()
@@ -60,38 +61,39 @@ namespace UCM.IAV.Movimiento
             }
 
             //Obtener el componente Agente del objetivo
-            Agente agenteObjetivo = objetivo.GetComponent<Agente>();
+            //Agente agenteObjetivo = objetivo.GetComponent<Agente>();
 
             //Verificar si el objetivo tiene el script Agente antes de usarlo
-            if(agenteObjetivo != null)
+            if(objetivo != null)
             {
                 //Calcular la posicion futura del objetivo
-                Vector3 targetPosition = objetivo.transform.position + (agenteObjetivo.velocidad * prediction);
+                Vector3 targetPosition = objetivo.transform.position;
                 //Recalcular direccion con la posicion predicha
                 direction = targetPosition - agente.transform.position;
                 distance = direction.magnitude;
             }
 
-            else
-            {
-                Debug.LogWarning("El objetivo no tiene el componente Agente");
-            }
 
             //Verificar si se encuentra dentro del radio de llegada para detenerse
             if (distance < targetRadius)
             { 
+                Debug.Log("Me paro");
                 return result;
+
             }
                 
             float targetSpeed;
             //Si esta fuera de slowRadius se mueve a maxima velocidad
             if (distance > slowRadius)
             {
+                Debug.Log("A toda hostia");
                 targetSpeed = agente.velocidadMax;
             }
             //Si esta dentro se ajusta la velocidad entre la velocidad maxima y 0
             //a medida que se acerca al objetivo
             else {
+
+                Debug.Log("Reduciendo");
                 targetSpeed = agente.velocidadMax * distance / slowRadius;
             }
 

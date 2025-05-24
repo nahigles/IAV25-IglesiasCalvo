@@ -13410,6 +13410,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bee (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7541389330333540832, guid: 8f1381e9d58567740aeca324d049b10f,
+        type: 3}
+      propertyPath: objetivo
+      value: 
+      objectReference: {fileID: 1073723014}
+    - target: {fileID: 7541389330333540832, guid: 8f1381e9d58567740aeca324d049b10f,
+        type: 3}
+      propertyPath: slowRadius
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7541389330333540832, guid: 8f1381e9d58567740aeca324d049b10f,
+        type: 3}
+      propertyPath: targetRadius
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19488,6 +19503,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bee (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7541389330333540832, guid: 8f1381e9d58567740aeca324d049b10f,
+        type: 3}
+      propertyPath: objetivo
+      value: 
+      objectReference: {fileID: 142480189}
+    - target: {fileID: 7541389330333540832, guid: 8f1381e9d58567740aeca324d049b10f,
+        type: 3}
+      propertyPath: slowRadius
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7541389330333540832, guid: 8f1381e9d58567740aeca324d049b10f,
+        type: 3}
+      propertyPath: targetRadius
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -46766,10 +46796,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3997395999202572826, guid: 8f1381e9d58567740aeca324d049b10f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6132584917296139840, guid: 8f1381e9d58567740aeca324d049b10f,
         type: 3}
       propertyPath: m_Name
       value: Bee
+      objectReference: {fileID: 0}
+    - target: {fileID: 7541389330333540832, guid: 8f1381e9d58567740aeca324d049b10f,
+        type: 3}
+      propertyPath: objetivo
+      value: 
+      objectReference: {fileID: 1422521190}
+    - target: {fileID: 7541389330333540832, guid: 8f1381e9d58567740aeca324d049b10f,
+        type: 3}
+      propertyPath: slowRadius
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7541389330333540832, guid: 8f1381e9d58567740aeca324d049b10f,
+        type: 3}
+      propertyPath: targetRadius
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
