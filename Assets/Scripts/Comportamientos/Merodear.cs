@@ -48,9 +48,6 @@ namespace UCM.IAV.Movimiento
             if (t >= actualT)
             {
 
-                Debug.Log("Vel Angular: " + lastDir.angular);
-                Debug.Log("Vel Lineal: " + lastDir.lineal);
-
                 float rotation = Random.Range(-1f, 1f) * agente.aceleracionAngularMax;
 
                 lastDir.angular += rotation;
@@ -81,38 +78,14 @@ namespace UCM.IAV.Movimiento
 
             lastDir.angular = 0;
 
-            //if (transform.position.y < 0.5)
-            //{
-            //    lastDir.lineal = new Vector3(lastDir.lineal.x, -lastDir.lineal.y + dirY, lastDir.lineal.z);
-            //}
-            //else if (transform.position.y > 4.5)
-            //{
-            //    lastDir.lineal = new Vector3(lastDir.lineal.x, -lastDir.lineal.y - dirY, lastDir.lineal.z);
-            //}
-            //else if(transform.position.z > 5)
-            //{
-            //    lastDir.lineal = new Vector3(lastDir.lineal.x, lastDir.lineal.y, -lastDir.lineal.z - dirY*5);
-            //}
-            //else if(transform.position.z < -11)
-            //{
-            //    lastDir.lineal = new Vector3(lastDir.lineal.x, lastDir.lineal.y, -lastDir.lineal.z + dirY*5);
-            //}
-            //else if(transform.position.x < -19)
-            //{
-            //    lastDir.lineal = new Vector3(-lastDir.lineal.x + dirY * 5, lastDir.lineal.y, lastDir.lineal.z);
-            //}
-            //else if(transform.position.x > 17)
-            //{
-            //    lastDir.lineal = new Vector3(-lastDir.lineal.x - dirY * 5, lastDir.lineal.y, lastDir.lineal.z);
-            //}
-
             return lastDir;
         }
+        //private void Start()
+        //{
+        //    actualT = Random.Range(0f, 3f);
+        //    t = Random.Range(3f, 5f);
+        //}
 
-        private void Start()
-        {
-            //lastDir.lineal = 
-        }
     }
 }
 
