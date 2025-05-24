@@ -37,7 +37,7 @@ namespace UCM.IAV.Movimiento
 
         // Dir vertical
         int dirY = 1;
-        bool up = true;
+        bool up = false;
 
         ComportamientoDireccion lastDir = new ComportamientoDireccion();
 
@@ -81,30 +81,30 @@ namespace UCM.IAV.Movimiento
 
             lastDir.angular = 0;
 
-            if(transform.position.y < 0.5)
-            {
-                lastDir.lineal = new Vector3(lastDir.lineal.x, -lastDir.lineal.y + dirY, lastDir.lineal.z);
-            }
-            else if(transform.position.y > 4.5)
-            {
-                lastDir.lineal = new Vector3(lastDir.lineal.x, -lastDir.lineal.y - dirY, lastDir.lineal.z);
-            }
-            else if(transform.position.z > 5)
-            {
-                lastDir.lineal = new Vector3(lastDir.lineal.x, lastDir.lineal.y, -lastDir.lineal.z - dirY*5);
-            }
-            else if(transform.position.z < -11)
-            {
-                lastDir.lineal = new Vector3(lastDir.lineal.x, lastDir.lineal.y, -lastDir.lineal.z + dirY*5);
-            }
-            else if(transform.position.x < -19)
-            {
-                lastDir.lineal = new Vector3(-lastDir.lineal.x + dirY * 5, lastDir.lineal.y, lastDir.lineal.z);
-            }
-            else if(transform.position.x > 17)
-            {
-                lastDir.lineal = new Vector3(-lastDir.lineal.x - dirY * 5, lastDir.lineal.y, lastDir.lineal.z);
-            }
+            //if (transform.position.y < 0.5)
+            //{
+            //    lastDir.lineal = new Vector3(lastDir.lineal.x, -lastDir.lineal.y + dirY, lastDir.lineal.z);
+            //}
+            //else if (transform.position.y > 4.5)
+            //{
+            //    lastDir.lineal = new Vector3(lastDir.lineal.x, -lastDir.lineal.y - dirY, lastDir.lineal.z);
+            //}
+            //else if(transform.position.z > 5)
+            //{
+            //    lastDir.lineal = new Vector3(lastDir.lineal.x, lastDir.lineal.y, -lastDir.lineal.z - dirY*5);
+            //}
+            //else if(transform.position.z < -11)
+            //{
+            //    lastDir.lineal = new Vector3(lastDir.lineal.x, lastDir.lineal.y, -lastDir.lineal.z + dirY*5);
+            //}
+            //else if(transform.position.x < -19)
+            //{
+            //    lastDir.lineal = new Vector3(-lastDir.lineal.x + dirY * 5, lastDir.lineal.y, lastDir.lineal.z);
+            //}
+            //else if(transform.position.x > 17)
+            //{
+            //    lastDir.lineal = new Vector3(-lastDir.lineal.x - dirY * 5, lastDir.lineal.y, lastDir.lineal.z);
+            //}
 
             return lastDir;
         }
