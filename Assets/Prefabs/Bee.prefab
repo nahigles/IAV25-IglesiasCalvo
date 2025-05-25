@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6968844627367095984}
   - component: {fileID: 6959799700702722763}
   - component: {fileID: 7541389330333540832}
+  - component: {fileID: 8844179885830485498}
   m_Layer: 0
   m_Name: Bee
   m_TagString: Untagged
@@ -283,7 +284,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3
+      scalar: 0.8
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -771,7 +772,7 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 0
     gravitySource: 0
-    maxNumParticles: 7
+    maxNumParticles: 70
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
@@ -831,7 +832,7 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-    type: 4
+    type: 0
     angle: 2
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
@@ -1037,7 +1038,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 6
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -4941,6 +4942,18 @@ MonoBehaviour:
   targetRadius: 1
   slowRadius: 5
   maxPrediction: 1
+--- !u!114 &8844179885830485498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6132584917296139840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e583e6490fc4f448befd7e35e9ca70e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4647377453041808825
 PrefabInstance:
   m_ObjectHideFlags: 0

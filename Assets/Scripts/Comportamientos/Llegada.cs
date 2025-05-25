@@ -32,7 +32,7 @@ namespace UCM.IAV.Movimiento
 
         public void Start()
         { 
-            //enabled = false;
+            enabled = false;
         }
 
         public override ComportamientoDireccion GetComportamientoDireccion()
