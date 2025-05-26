@@ -18,6 +18,9 @@ public class Panal : MonoBehaviour
     GameObject colmena = null;
 
     [SerializeField]
+    GameObject salidaColmena = null;
+
+    [SerializeField]
     Slider slider = null;
 
     // Start is called before the first frame update
@@ -48,9 +51,13 @@ public class Panal : MonoBehaviour
             polenNumber += beePolen;
             slider.value = polenNumber;
 
+
             // Posicion de abeja a dentro del panal
             other.transform.position = colmena.transform.position;
-            other.transform.rotation = colmena.transform.rotation;
+
+            // Rotacion dependiendo de donde esta la flor
+            salidaColmena.transform.LookAt(new Vector3(beeComp.flower.transform.position.x, salidaColmena.transform.position.y, beeComp.flower.transform.position.z));
+            other.transform.rotation = colmena.transform.rotation * salidaColmena.transform.rotation; // Suma el angulo de la flor con el sol
 
             // Desactiva componente llegada
             llegadaComp.enabled = false;
