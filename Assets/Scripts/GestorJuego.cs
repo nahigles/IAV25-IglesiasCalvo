@@ -101,7 +101,6 @@ namespace UCM.IAV.Movimiento
             numRats = rataGO.transform.childCount;
             ratText.text = numRats.ToString();
 
-            Debug.Log(popup);
             inputField = popup.GetComponentInChildren<TMP_InputField>();
             Button acceptButton = popup.transform.Find("Button").GetComponent<Button>();
             acceptButton.onClick.AddListener(() => ReadInput());

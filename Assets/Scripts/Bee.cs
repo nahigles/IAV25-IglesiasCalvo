@@ -23,6 +23,7 @@ public class Bee : MonoBehaviour
     Animator animator = null;
     [SerializeField]
     Animator childAnimator = null;
+    float speedFactor = 40.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -85,5 +86,8 @@ public class Bee : MonoBehaviour
     {
         childAnimator.enabled = false;
         animator.enabled = true;
+
+        // Velocidad del baile dependiente de la distancia de la distancia
+        animator.speed = speedFactor / (flower.transform.position - colmena.transform.position).magnitude; 
     }
 }
