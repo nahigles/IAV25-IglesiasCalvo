@@ -24,6 +24,12 @@ namespace UCM.IAV.Movimiento
         public static GestorJuego instance = null;
 
         [SerializeField]
+        GameObject cameraCampo = null;
+
+        [SerializeField]
+        GameObject cameraColmena = null;
+
+        [SerializeField]
         GameObject scenario = null;
 
         [SerializeField]
@@ -274,6 +280,20 @@ namespace UCM.IAV.Movimiento
                 }
             }
             
+        }
+
+        public void ChangeCamera()
+        {
+            if (cameraCampo.activeSelf)
+            {
+                cameraCampo.SetActive(false);
+                cameraColmena.SetActive(true);
+            }
+            else if (cameraColmena.activeSelf)
+            {
+                cameraColmena.SetActive(false);
+                cameraCampo.SetActive(true);
+            }
         }
     }
 }
