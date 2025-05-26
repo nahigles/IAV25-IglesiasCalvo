@@ -58,6 +58,7 @@ public class Flower : MonoBehaviour
 
                 // Activa componente llegada
                 llegadaBeeComp.objetivo = gameObject; // Esta flower como objetivo
+                beeComp.flower = gameObject; 
                 llegadaBeeComp.enabled = true;
 
                 beeComp.TakePolen();

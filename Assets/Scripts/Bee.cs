@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UCM.IAV.Movimiento;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class Bee : MonoBehaviour
 {
@@ -11,12 +13,19 @@ public class Bee : MonoBehaviour
     int polenCont = 0;
     int maxPolen = 2;
     ParticleSystem particles = null;
+    Llegada llegadaComp = null;
 
+    public GameObject flower = null;
+    GameObject colmena = null;
+    Collider colliderComp = null;
 
     // Start is called before the first frame update
     void Start()
     {
         particles = GetComponent<ParticleSystem>();
+        llegadaComp = GetComponent<Llegada>();
+        colmena = GameObject.Find("TriggerEntrada");
+        colliderComp = GetComponent<Collider>();
     }
 
     // Update is called once per frame
@@ -31,6 +40,9 @@ public class Bee : MonoBehaviour
                 particles.Play();
                 polen = false;
                 t = 0.0f; // Reinicio contador
+                llegadaComp.objetivo = colmena; // Se dirige a la colmena
+                gameObject.layer = LayerMask.NameToLayer("AbejaConPolen");
+                //colliderComp.isTrigger = true;
             }
             // Si no sigue contando el tiempo
             else
@@ -40,11 +52,23 @@ public class Bee : MonoBehaviour
         }
     }
 
+    // Coger polen
     public void TakePolen()
     {
         polen = true;
     }
 
+    // Dejar polen
+    public int PutDownPolen()
+    {
+        int aux = polenCont;
+        polenCont = 0;
+        particles.Stop();
+
+        return aux;
+    }
+
+    // Devuelve true si esta lleno de polen
     public bool IsFull()
     {
         return (polenCont == maxPolen);

@@ -1,0 +1,54 @@
+using System.Collections;
+using System.Collections.Generic;
+using UCM.IAV.Movimiento;
+using UnityEngine;
+
+public class Panal : MonoBehaviour
+{
+    int polenNumber = 0;
+    int polenMin = 0;
+    int polenMax = 20;
+
+    [SerializeField]
+    GameObject colmena = null;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        // Si es una abeja se mete a la colmena
+        Bee beeComp = other.GetComponent<Bee>();
+        Llegada llegadaComp = other.GetComponent<Llegada>();
+        Agente agenteComp = other.GetComponent<Agente>();
+
+        if (beeComp != null && llegadaComp != null && agenteComp != null)
+        {
+            // La abeja deja la comida que tenga
+            int beePolen = beeComp.PutDownPolen();
+            polenNumber += beePolen;
+
+            // Posicion de abeja a dentro del panal
+            other.transform.position = colmena.transform.position;
+
+            // Desactiva componente llegada
+            Debug.Log("Me desactivo llegada");
+            llegadaComp.enabled = false;
+            agenteComp.enabled = false;
+            other.attachedRigidbody.velocity = Vector3.zero;
+            other.attachedRigidbody.freezeRotation = true;
+
+            // Hace baile para comunicar
+
+        }
+    }
+}
