@@ -2,20 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UCM.IAV.Movimiento;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Panal : MonoBehaviour
 {
     int polenNumber = 0;
+
+    [SerializeField]
     int polenMin = 0;
-    int polenMax = 20;
+
+    [SerializeField]
+    int polenMax = 100;
 
     [SerializeField]
     GameObject colmena = null;
 
+    [SerializeField]
+    Slider slider = null;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        slider.maxValue = polenMax;
+        slider.minValue = polenMin;
+        slider.value = polenNumber;
     }
 
     // Update is called once per frame
@@ -36,18 +46,20 @@ public class Panal : MonoBehaviour
             // La abeja deja la comida que tenga
             int beePolen = beeComp.PutDownPolen();
             polenNumber += beePolen;
+            slider.value = polenNumber;
 
             // Posicion de abeja a dentro del panal
             other.transform.position = colmena.transform.position;
+            other.transform.rotation = colmena.transform.rotation;
 
             // Desactiva componente llegada
-            Debug.Log("Me desactivo llegada");
             llegadaComp.enabled = false;
             agenteComp.enabled = false;
             other.attachedRigidbody.velocity = Vector3.zero;
             other.attachedRigidbody.freezeRotation = true;
 
             // Hace baile para comunicar
+            beeComp.Dance();
 
         }
     }

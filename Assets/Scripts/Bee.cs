@@ -19,6 +19,11 @@ public class Bee : MonoBehaviour
     GameObject colmena = null;
     Collider colliderComp = null;
 
+    [SerializeField]
+    Animator animator = null;
+    [SerializeField]
+    Animator childAnimator = null;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +31,11 @@ public class Bee : MonoBehaviour
         llegadaComp = GetComponent<Llegada>();
         colmena = GameObject.Find("TriggerEntrada");
         colliderComp = GetComponent<Collider>();
+        //Transform animTrans = transform.GetChild(0);
+        //animator = animTrans.GetComponent<Animator>();
+        ////animator.speed = 0.0f;
+        animator.enabled = false;
+        //childAnimator = animTrans.GetChild(1).GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -42,7 +52,6 @@ public class Bee : MonoBehaviour
                 t = 0.0f; // Reinicio contador
                 llegadaComp.objetivo = colmena; // Se dirige a la colmena
                 gameObject.layer = LayerMask.NameToLayer("AbejaConPolen");
-                //colliderComp.isTrigger = true;
             }
             // Si no sigue contando el tiempo
             else
@@ -72,5 +81,14 @@ public class Bee : MonoBehaviour
     public bool IsFull()
     {
         return (polenCont == maxPolen);
+    }
+
+    // Activa animacion de baile y desactiva el de volar
+    public void Dance()
+    {
+        childAnimator.enabled = false;
+        animator.enabled = true;
+        //childAnimator.speed = 0.0f;
+        //animator.speed = 1.0f;
     }
 }
