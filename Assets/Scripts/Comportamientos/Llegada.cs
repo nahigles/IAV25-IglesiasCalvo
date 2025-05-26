@@ -77,7 +77,6 @@ namespace UCM.IAV.Movimiento
             //Verificar si se encuentra dentro del radio de llegada para detenerse
             if (distance < targetRadius)
             { 
-                Debug.Log("Me paro");
                 return result;
 
             }
@@ -86,14 +85,12 @@ namespace UCM.IAV.Movimiento
             //Si esta fuera de slowRadius se mueve a maxima velocidad
             if (distance > slowRadius)
             {
-                Debug.Log("A toda hostia");
                 targetSpeed = agente.velocidadMax;
             }
             //Si esta dentro se ajusta la velocidad entre la velocidad maxima y 0
             //a medida que se acerca al objetivo
             else {
 
-                Debug.Log("Reduciendo");
                 targetSpeed = agente.velocidadMax * distance / slowRadius;
             }
 

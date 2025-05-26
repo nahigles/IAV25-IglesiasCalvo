@@ -31,11 +31,8 @@ public class Bee : MonoBehaviour
         llegadaComp = GetComponent<Llegada>();
         colmena = GameObject.Find("TriggerEntrada");
         colliderComp = GetComponent<Collider>();
-        //Transform animTrans = transform.GetChild(0);
-        //animator = animTrans.GetComponent<Animator>();
-        ////animator.speed = 0.0f;
+
         animator.enabled = false;
-        //childAnimator = animTrans.GetChild(1).GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -88,7 +85,5 @@ public class Bee : MonoBehaviour
     {
         childAnimator.enabled = false;
         animator.enabled = true;
-        //childAnimator.speed = 0.0f;
-        //animator.speed = 1.0f;
     }
 }
