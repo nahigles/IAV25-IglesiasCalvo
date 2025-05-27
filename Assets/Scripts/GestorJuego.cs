@@ -35,6 +35,11 @@ namespace UCM.IAV.Movimiento
         [SerializeField]
         GameObject rataPrefab = null;
 
+        [SerializeField]
+        GameObject lluvia = null;
+
+        [SerializeField]
+        GameObject entradaColmena = null;
 
         // textos UI
         [SerializeField]
@@ -54,6 +59,7 @@ namespace UCM.IAV.Movimiento
         private int numRats;
 
         private bool cameraPerspective = true;
+        bool rain = false;
         private void Awake()
         {
             //Cosa que viene en los apuntes para que el gestor del juego no se destruya entre escenas
@@ -97,11 +103,6 @@ namespace UCM.IAV.Movimiento
             Application.targetFrameRate = frameRate;
             numRats = rataGO.transform.childCount;
             ratText.text = numRats.ToString();
-
-            //inputField = popup.GetComponentInChildren<TMP_InputField>();
-            //Button acceptButton = popup.transform.Find("Button").GetComponent<Button>();
-            //acceptButton.onClick.AddListener(() => ReadInput());
-            //popup.SetActive(false);
         }
 
         // Se llama cuando el juego ha terminado
@@ -224,6 +225,43 @@ namespace UCM.IAV.Movimiento
             {
                 cameraColmena.SetActive(false);
                 cameraCampo.SetActive(true);
+            }
+        }
+
+        public void Rain()
+        {
+            if (rain)
+            {
+                rain = false;
+                lluvia.SetActive(false);
+            }
+            else
+            {
+                rain = true;
+                lluvia.SetActive(true);
+                AbejasAColmena();
+            }
+        }
+
+        private void AbejasAColmena()
+        {
+            Merodear[] merodearComponents = rataGO.GetComponentsInChildren<Merodear>();
+            for (int i = 0; i < merodearComponents.Length; i++)
+            {
+                merodearComponents[i].enabled = false;
+            }
+
+            Llegada[] llegadaComponents = rataGO.GetComponentsInChildren<Llegada>();
+            for (int i = 0; i < llegadaComponents.Length; i++)
+            {
+                llegadaComponents[i].objetivo = entradaColmena;
+                llegadaComponents[i].enabled = true;
+            }
+
+            int n = rataGO.transform.childCount;
+            for (int i = 0; i < n; i++) {
+                Transform childT = rataGO.transform.GetChild(i);
+                childT.gameObject.layer = LayerMask.NameToLayer("AbejaConPolen");
             }
         }
     }

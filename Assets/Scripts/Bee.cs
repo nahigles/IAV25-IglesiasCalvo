@@ -7,6 +7,8 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 public class Bee : MonoBehaviour
 {
     // Contador tiempo abeja recoger polen
+    float danceTime = 13.0f;
+    bool dancing = false;
     float t = 7.0f;
     float actualT = 0.0f;
     bool polen = false;
@@ -17,6 +19,7 @@ public class Bee : MonoBehaviour
 
     public GameObject flower = null;
     GameObject colmena = null;
+    GameObject campoFlores = null;
     Collider colliderComp = null;
 
     [SerializeField]
@@ -31,6 +34,7 @@ public class Bee : MonoBehaviour
         particles = GetComponent<ParticleSystem>();
         llegadaComp = GetComponent<Llegada>();
         colmena = GameObject.Find("TriggerEntrada");
+        campoFlores = GameObject.Find("Flowers");
         colliderComp = GetComponent<Collider>();
 
         animator.enabled = false;
@@ -50,6 +54,21 @@ public class Bee : MonoBehaviour
                 t = 0.0f; // Reinicio contador
                 llegadaComp.objetivo = colmena; // Se dirige a la colmena
                 gameObject.layer = LayerMask.NameToLayer("AbejaConPolen");
+            }
+            // Si no sigue contando el tiempo
+            else
+            {
+                t += Time.deltaTime;
+            }
+        }
+        if (dancing)
+        {
+            // Si ha pasado el tiempo de bailar
+            if (t >= danceTime)
+            {
+                t = 0.0f; // Reinicio contador
+
+                StopDancing();
             }
             // Si no sigue contando el tiempo
             else
@@ -84,10 +103,28 @@ public class Bee : MonoBehaviour
     // Activa animacion de baile y desactiva el de volar
     public void Dance()
     {
+        dancing = true;
         childAnimator.enabled = false;
         animator.enabled = true;
 
         // Velocidad del baile dependiente de la distancia de la distancia
         animator.speed = speedFactor / (flower.transform.position - colmena.transform.position).magnitude; 
+    }
+
+    private void StopDancing()
+    {
+        dancing = false;
+        animator.enabled = false;
+        animator.speed = 0.0f;
+        childAnimator.enabled = true;
+
+
+        //// Volver al campo
+        //GetComponent<Agente>().enabled = true;
+        //llegadaComp.enabled = true;
+
+        //transform.position = colmena.transform.position;
+        //transform.rotation = colmena.transform.rotation;
+        //llegadaComp.objetivo = campoFlores; // Se dirige al campo
     }
 }

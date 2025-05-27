@@ -27,6 +27,9 @@ public class Panal : MonoBehaviour
     GameObject abejasPanal = null;
     List<GameObject> abejasColmenaLista;
 
+    float restaPolemTiempo = 15.0f;
+    float contTiempo = 0.0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,7 +49,17 @@ public class Panal : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(contTiempo >= restaPolemTiempo)
+        {
+            // Resta 1 de polen
+            polenNumber--;
+            slider.value = polenNumber;
+            contTiempo = 0.0f;
+        }
+        else
+        {
+            contTiempo += Time.deltaTime;
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -118,18 +131,19 @@ public class Panal : MonoBehaviour
                         beePanalComp.Work();
 
                         // Posiciono la abeja en la salida
-                        abejasColmenaLista[i].transform.position = salidaColmena.transform.position;
-                        abejasColmenaLista[i].transform.rotation = salidaColmena.transform.rotation;
+                        beePanalComp.SetSalidaColmena(salidaColmena.transform);
+                        //abejasColmenaLista[i].transform.position = salidaColmena.transform.position;
+                        //abejasColmenaLista[i].transform.rotation = salidaColmena.transform.rotation;
 
-                        // Activo agente y llegada
-                        Agente agenteBeePanal = abejasColmenaLista[i].GetComponent<Agente>();
-                        agenteBeePanal.enabled = true;
+                        //// Activo agente y llegada
+                        //Agente agenteBeePanal = abejasColmenaLista[i].GetComponent<Agente>();
+                        //agenteBeePanal.enabled = true;
                         Llegada llegadaCompAbjPanal = abejasColmenaLista[i].GetComponent<Llegada>();
-                        Debug.Log("Llegada null " + llegadaCompAbjPanal == null);
-                        llegadaCompAbjPanal.enabled = true;
+                        //Debug.Log("Llegada null " + llegadaCompAbjPanal == null);
+                        //llegadaCompAbjPanal.enabled = true;
 
-                        // Desfrezzeo
-                        abejasColmenaLista[i].GetComponent<Rigidbody>().freezeRotation = false;
+                        //// Desfrezzeo
+                        //abejasColmenaLista[i].GetComponent<Rigidbody>().freezeRotation = false;
 
                         // Seteo su objetivo hacia la flor de la abeja del baile
                         Debug.Log("Activo llegada");
