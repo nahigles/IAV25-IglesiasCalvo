@@ -58,7 +58,6 @@ namespace UCM.IAV.Movimiento
 
         private int numRats;
 
-        private bool cameraPerspective = true;
         bool rain = false;
         private void Awake()
         {
@@ -203,18 +202,6 @@ namespace UCM.IAV.Movimiento
             {
                 frameRate = 30;
                 Application.targetFrameRate = 30;
-            }
-        }
-
-        private void ChangeCameraView()
-        {
-            if (cameraPerspective){
-                Camera.main.GetComponent<SeguimientoCamara>().offset = new Vector3(0, 15, -2);
-                cameraPerspective = false;
-            }
-            else{
-                Camera.main.GetComponent<SeguimientoCamara>().offset = new Vector3(0, 7, -10);
-                cameraPerspective = true;
             }
         }
 

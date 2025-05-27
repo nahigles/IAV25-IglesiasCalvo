@@ -132,21 +132,11 @@ public class Panal : MonoBehaviour
 
                         // Posiciono la abeja en la salida
                         beePanalComp.SetSalidaColmena(salidaColmena.transform);
-                        //abejasColmenaLista[i].transform.position = salidaColmena.transform.position;
-                        //abejasColmenaLista[i].transform.rotation = salidaColmena.transform.rotation;
 
-                        //// Activo agente y llegada
-                        //Agente agenteBeePanal = abejasColmenaLista[i].GetComponent<Agente>();
-                        //agenteBeePanal.enabled = true;
+                        // Activo llegada
                         Llegada llegadaCompAbjPanal = abejasColmenaLista[i].GetComponent<Llegada>();
-                        //Debug.Log("Llegada null " + llegadaCompAbjPanal == null);
-                        //llegadaCompAbjPanal.enabled = true;
-
-                        //// Desfrezzeo
-                        //abejasColmenaLista[i].GetComponent<Rigidbody>().freezeRotation = false;
 
                         // Seteo su objetivo hacia la flor de la abeja del baile
-                        Debug.Log("Activo llegada");
                         llegadaCompAbjPanal.objetivo = beeComp.flower;
                         abejasColmenaLista[i].GetComponent<Bee>().flower = beeComp.flower;
                     }

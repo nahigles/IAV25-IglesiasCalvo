@@ -43,7 +43,6 @@ public class BeePanal : MonoBehaviour
                 Agente agenteBeePanal = GetComponent<Agente>();
                 agenteBeePanal.enabled = true;
                 Llegada llegadaCompAbjPanal = GetComponent<Llegada>();
-                Debug.Log("Llegada null " + llegadaCompAbjPanal == null);
                 llegadaCompAbjPanal.enabled = true;
 
                 // Desfrezzeo

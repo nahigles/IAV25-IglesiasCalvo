@@ -80,11 +80,6 @@ namespace UCM.IAV.Movimiento
 
             return lastDir;
         }
-        //private void Start()
-        //{
-        //    actualT = Random.Range(0f, 3f);
-        //    t = Random.Range(3f, 5f);
-        //}
 
     }
 }

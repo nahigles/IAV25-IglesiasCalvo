@@ -72,7 +72,6 @@ namespace UCM.IAV.Movimiento
                 //Recalcular direccion con la posicion predicha
                 direction = targetPosition - agente.transform.position;
                 distance = direction.magnitude;
-                Debug.Log("Direccion: " + direction);
             }
 
 

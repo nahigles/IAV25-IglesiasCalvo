@@ -117,14 +117,5 @@ public class Bee : MonoBehaviour
         animator.enabled = false;
         animator.speed = 0.0f;
         childAnimator.enabled = true;
-
-
-        //// Volver al campo
-        //GetComponent<Agente>().enabled = true;
-        //llegadaComp.enabled = true;
-
-        //transform.position = colmena.transform.position;
-        //transform.rotation = colmena.transform.rotation;
-        //llegadaComp.objetivo = campoFlores; // Se dirige al campo
     }
 }

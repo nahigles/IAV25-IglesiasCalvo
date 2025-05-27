@@ -31290,6 +31290,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BeePanal
       objectReference: {fileID: 0}
+    - target: {fileID: 6132584917296139840, guid: dd3240d2404da5b4bb28b84bb3048816,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -41480,7 +41485,7 @@ PrefabInstance:
     - target: {fileID: 6132584917296139840, guid: dd3240d2404da5b4bb28b84bb3048816,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -46939,7 +46944,7 @@ PrefabInstance:
     - target: {fileID: 6132584917296139840, guid: dd3240d2404da5b4bb28b84bb3048816,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
