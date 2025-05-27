@@ -21,8 +21,7 @@ Para ello, las abejas volarán por el campo y podrán detectar una flor, volver 
 
 
 ## Instalación y uso
-Todo el contenido del proyecto está disponible aquí en el repositorio, pues Unity 2022.3.40f1 o posterior debería ser capaz de bajar todos los paquetes necesarios.
-Al terminar el proyecto estará disponible un ejecutable para PC.
+Todo el contenido del proyecto está disponible aquí en el repositorio, pues Unity 2022.3.40f1 o posterior debería ser capaz de bajar todos los paquetes necesarios. Además está subida una release para Windows descargable en esta misma página.
 
 
 ## Motivación  
@@ -105,8 +104,8 @@ Tenemos un campo con flores, la colmena y las abejas controladas por IA. Se quie
 * __A__: Campo con flores, con abejas controladas por la IA que entran y salen de su colmena. La interfaz permite crear y destruir abejas, cambiar de cámara al campo o dentro de la colmena y habilitar y deshabilitar en la interfaz datos y métricas de la colmena.
 * __B__: La colmena dispondrá de cantidad de comida y se indicará en la interfaz con una barra. Si la barra llega a 0 la colmena no sobrevive.
 * __C__: Las flores irán creando polen o néctar, por lo tanto habrá veces que tengan alimento y otras no. Las flores deben ser detectadas por las abejas en caso de que contengan comida.
-* __D__: Las abejas vuelan desordenadamente de forma individual en un espacio 3D hasta que encuentran alimento. Una vez encontrado alimento, vuelve a la colmena a comunicar el mensaje a las demás abejas (Danza de la abeja).Las abejas que reciben el mensaje son capaces de interpretar e imitar el mensaje e ir en búsqueda de la flor con comida. Cada abeja tiene una capacidad limitada para coger polen y néctar y volará más lento contra más comida lleven. También pueden reproducirse y morir por  causas climáticas.
-* __E__:  El mundo tendrá día, noche y posibilidad de lluvia. La lluvia se podrá activar y desactivar mediante un botón en la interfaz y habrá otro que permitirá al usuario acelerar el tiempo.
+* __D__: Las abejas vuelan desordenadamente de forma individual en un espacio 3D hasta que encuentran alimento. Una vez encontrado alimento, vuelve a la colmena a comunicar el mensaje a las demás abejas (Danza de la abeja).Las abejas que reciben el mensaje son capaces de interpretar e ir en búsqueda de la flor con comida. Cada abeja tiene una capacidad limitada para coger polen y néctar.
+* __E__:  El mundo tendrá lluvia que se podrá activar y desactivar mediante un botón en la interfaz. Las abejas vuelan a la colmena para resguardarse de la lluvia.
 
 ## Diseño de la solución
 
@@ -121,15 +120,8 @@ Tendré una lista de GameObjects Abejas, cada vez que se pulse el + instanciaré
 
 La lluvia estará creada con partículas de Unity e irá controlada por el GameManager también.
 
-Para el tiempo habrá un contador que guarde el número para después poder multiplicarlo por 2 en caso de pulsar el botón de acelerar el tiempo, que estará a 1 por defecto.
-
 '''
 class Game Manager:
-
-
-	float time = 0;
-	float timeFactor = 1;
-
 
 	AddBee():
 		Instantiate (beePrefab);
@@ -149,10 +141,6 @@ class Game Manager:
 			rain.Activate();
 
 
-	AccelerateTime():
-		timeFactor = 2;
-
-
 	Metrics():
 		if(metrics.active)
 			metrics.active = false;
@@ -165,7 +153,7 @@ class Game Manager:
 * __B.__
 Para la colmena, habrá un contador interno que irá guardando la cantidad de comida. La colmena tendrá un mínimo y un máximo que se reflejará en la UI con una barra.
 
-Cada vez que una abeja vuelva con comida a la colmena se sumará 1 al contador, y se restará 1 por cada abeja viva cada 24h.
+Cada vez que una abeja vuelva con comida a la colmena se sumará la cantidad de polen que lleve la abeja al contador, y se restará 1 cada x segundos, ya que esto simulará el gasto de polen para que las abbejas se alimenten.
 
 ![diagram](./Imagenes/InterfazColmena.jpg)
 
@@ -433,14 +421,11 @@ Para movimiento aleatorio al volar:
 
 ```
 
-Se disminuirá el vector de velocidad cuando lleven comida, y la  abeja morirá si está durante mucho rato en la lluvia.
-
 Para detectar a cuanta distancia y en qué dirección está la flor, se verá la velocidad y el ángulo respecto al eje Y con el que hace el baile una abeja que ha encontrado comida. La abeja que interpreta hará un cálculo y volará en linea recta o en círculos dependiendo del baile que haya hecho la otra abeja.
 
 
 * __E.__
-Habrá un contador que vaya contando los minutos y horas y se verán reflejados en la interfaz emol todo momento. El botón de aumentar la velocidad también estará siempre en la interfaz, tanto en el campo como dentro de la colmena. El botón de lluvia solo estará en la cámara del campo, y se activará un sistema de partículas cada vez que esté activado.
-Para simular la noche y e día se cambiará e color del cielo y las luces dependiendo de la hora que sea.
+Habrá un botón de lluvia que activará un sistema de partículas cada vez que esté activado. La lluvia afecta a las abejas ya que estas huyen de ella y se resguardan en la colmena.
 
 
 ## Implementación
@@ -452,14 +437,15 @@ A continuación se explican las distintas pruebas que se llevarán a cabo para c
 - __A.__ En este punto se describe el mundo: Un campo con flores que tienen alimento y unas abejas con su colmena. Una interfaz que permite cambiar de cámara, añadir abejas, quitar abejas y habilitar y deshabilitar datos y métricas de la colmena.
 1. Visualizar mundo con abejas, colmena, flores e interfaz
 2. Click en el botón cámara para comprobar que cambia de la colmena al campo y viceversa.
-3. Click en botón + y comprobamos que se añade una abeja.
-4. Click en botón - y comprobamos que se quita una abeja.
-5. Click en botón de métricas y comprobamos que aparecen los datos del juego. (Número de abejas, comida actual en la colmena, FPS, abejas muertas, reproducción…)
+3. Pulsamos la tecla O y comprobamos que se añade una abeja.
+4. Pulsamos la tecla P y comprobamos que se quita una abeja.
+5. Pulsamos tecla T y comprobamos que aparecen los datos del juego y desaparecen. (Número de abejas, FPS, controles…)
+6. Pulsamos tecla R y observamos que se reinicia el juego.
 
 
 - __B.__ Este apartado habla sobre la cantidad de comida en la colmena y la barra que indica al jugador cómo de llena está.
 1. El jugador dejará el juego ejecutar durante 10 segundos y observará que la barra se llena correctamente cuando las abejas llevan comida a la colmena.
-2. El jugador hará que las abejas no lleven comida a la colmena. Comprobamos que al terminarse la comida la colmena no sobrevive.
+2. El jugador hará que las abejas no lleven comida a la colmena. Comprobamos que la barra de comida de la comida baja.
 
 
 - __C.__ Este apartado habla sobre las flores, estas irán creando polen o néctar, por lo tanto habrá veces que tengan alimento y otras no. Pueden ser detectadas por las abejas y recoger su polen.
@@ -468,19 +454,17 @@ A continuación se explican las distintas pruebas que se llevarán a cabo para c
 3. Visualizar que el polen disminuye cuando una abeja recoge parte de él.
 
 
-- __D.__ Este apartado explica el comportamiento de las abejas: Las abejas merodean por el aire de forma individual en un espacio 3D hasta que encuentran alimento. Si encuentran alimento, vuelven a la colmena a comunicar el mensaje a las demás abejas haciendo el baile de la abeja. También son capaces de interpretar el mensaje y copiarlo y tienen distintas velocidades.
+- __D.__ Este apartado explica el comportamiento de las abejas: Las abejas merodean por el aire de forma individual en un espacio 3D hasta que encuentran alimento. Si encuentran alimento, vuelven a la colmena a comunicar el mensaje a las demás abejas haciendo el baile de la abeja. También son capaces de interpretar el mensaje y tienen distintas velocidades y ángulos.
 1. Comprobamos que las abejas vuelan por el campo con aleatoriedad.
 2. Comprobamos que detectan las flores.
 3. Comprobamos que recoge polen y lo lleva a la colmena.
-4. Comprobamos que realiza el baile de la abeja y que las demás entienden cada baile, copian y localizan la flor encontrada correctamente.
-5. Comprobamos que vuelan más lento si llevan comida.
+4. Comprobamos que realiza el baile de la abeja y que las demás entienden cada baile y localizan la flor encontrada correctamente.
 
 
-- __E.__ Este apartado explica el tiempo y la lluvia. Las horas van pasando y el jugador puede activar y desactivar la lluvia y acelerar el tiempo.
-1. Mientras pulsamos el botón de acelerar el tiempo nos fijamos que todos los agentes que se mueven van más rápido.
-2. Pulsamos botón de activar y desactivar y nos fijamos que empieza a llover y viceversa, y que las abejas se resguardan en la colmena.
+- __E.__ Este apartado explica la lluvia. El jugador puede activar y desactivar la lluvia.
+1. Pulsamos botón de activar y desactivar y nos fijamos que empieza a llover y viceversa, y que las abejas se resguardan en la colmena.
 
-- Video: (Se añadirá al terminar el proyecto)
+- Video: https://github.com/nahigles/IAV25-IglesiasCalvo/tree/main/Video
 
 ## Licencia
 Federico Peinado, autor de la documentación, código y recursos de este trabajo, concedo permiso permanente a los alumnos de la Facultad de Informática de la Universidad Complutense de Madrid para utilizar este material, con sus comentarios y evaluaciones, con fines educativos o de investigación; ya sea para obtener datos agregados de forma anónima como para utilizarlo total o parcialmente reconociendo expresamente mi autoría.
@@ -493,14 +477,10 @@ Los recursos de terceros utilizados son de uso público.
 
 #### Modelos 3D
 * [Flores](https://loafbrr.itch.io/flower-arrangement-pack)
-* [Flores2](https://poly.pizza/m/NBUxHir6FJ)
 
 * [Hierba](https://poly.pizza/m/dz_TvM39dC7)
-* [Árboles](https://poly.pizza/m/etFGNvsiFv)
  
 * [Abeja]( https://essssam.itch.io/3d-leap-land)
-* [Abeja2](https://poly.pizza/m/HvfIku26CK)
-* [Abeja3](https://poly.pizza/m/f0lW38lzjd4)
 
 * [Panal](https://poly.pizza/m/6Mqdrv1n3Oo)
 
@@ -510,7 +490,10 @@ Los recursos de terceros utilizados son de uso público.
 * [Wikipedia](https://es.wikipedia.org/wiki/Danza_de_la_abeja)
 * [Video Animación Danza Abejas](https://youtu.be/6Lnq_zZlYa4)
 * [Video Danzas Abejas](https://youtu.be/4udl87_OzJA)
-  
+
+#### Package de Unity
+*  [Renderer RP - Universal Render Pipeline (URP)](https://unity.com/features/srp/universal-render-pipeline)
+
 #### Libros y apuntes
 * AI for Games, _Ian Millington_.
 * [Apuntes de la asignatura Inteligencia Artificial para Videojuegos en la página Narratech](https://narratech.com/es/inteligencia-artificial-para-videojuegos/percepcion-y-movimiento/), _Federico Peinado Gil_: he tenido como referencia el pseudocódigo de los diferentes comportamientos que impementamos en la Práctica 1 y demás información.
