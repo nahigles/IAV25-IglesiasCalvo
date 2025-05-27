@@ -464,7 +464,9 @@ A continuación se explican las distintas pruebas que se llevarán a cabo para c
 - __E.__ Este apartado explica la lluvia. El jugador puede activar y desactivar la lluvia.
 1. Pulsamos botón de activar y desactivar y nos fijamos que empieza a llover y viceversa, y que las abejas se resguardan en la colmena.
 
-- Video: https://github.com/nahigles/IAV25-IglesiasCalvo/tree/main/Video
+__Video:__
+- Drive: https://drive.google.com/file/d/1DuADW0BTTUISGcUF44OGzPQ4CFWjsqM_/view?usp=sharing
+- Repositorio: https://github.com/nahigles/IAV25-IglesiasCalvo/tree/main/Video
 
 ## Licencia
 Federico Peinado, autor de la documentación, código y recursos de este trabajo, concedo permiso permanente a los alumnos de la Facultad de Informática de la Universidad Complutense de Madrid para utilizar este material, con sus comentarios y evaluaciones, con fines educativos o de investigación; ya sea para obtener datos agregados de forma anónima como para utilizarlo total o parcialmente reconociendo expresamente mi autoría.
