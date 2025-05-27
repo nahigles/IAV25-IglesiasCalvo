@@ -67,6 +67,16 @@ public class Flower : MonoBehaviour
                 var main = particles.main;
                 main.startLifetime = contPolen;
             }
+            else
+            {
+                // Si es una abeja obrera del panal
+                BeePanal beepanal = other.GetComponent<BeePanal>();
+                if (beepanal != null)
+                {
+                    // Va hacia el panal
+                    beeComp.TakePolen();
+                }
+            }
         }
     }
 }

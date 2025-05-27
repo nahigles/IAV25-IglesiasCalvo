@@ -35,9 +35,6 @@ namespace UCM.IAV.Movimiento
         [SerializeField]
         GameObject rataPrefab = null;
 
-        [SerializeField]
-        private GameObject popup;
-        private TMP_InputField inputField;
 
         // textos UI
         [SerializeField]
@@ -85,8 +82,8 @@ namespace UCM.IAV.Movimiento
         // Antiguamente se usaba un método del SceneManager llamado OnLevelWasLoaded(int level), ahora obsoleto
         void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
-            rataGO = GameObject.Find("Ratas");
-            ratText = GameObject.Find("NumRats").GetComponent<Text>();
+            rataGO = GameObject.Find("Abejas");
+            ratText = GameObject.Find("NumAbejas").GetComponent<Text>();
             fRText = GameObject.Find("Framerate").GetComponent<Text>();
             numRats = rataGO.transform.childCount;
             ratText.text = numRats.ToString();
@@ -96,15 +93,15 @@ namespace UCM.IAV.Movimiento
         // Se llama para poner en marcha el gestor
         private void Start()
         {
-            rataGO = GameObject.Find("Ratas");
+            rataGO = GameObject.Find("Abejas");
             Application.targetFrameRate = frameRate;
             numRats = rataGO.transform.childCount;
             ratText.text = numRats.ToString();
 
-            inputField = popup.GetComponentInChildren<TMP_InputField>();
-            Button acceptButton = popup.transform.Find("Button").GetComponent<Button>();
-            acceptButton.onClick.AddListener(() => ReadInput());
-            popup.SetActive(false);
+            //inputField = popup.GetComponentInChildren<TMP_InputField>();
+            //Button acceptButton = popup.transform.Find("Button").GetComponent<Button>();
+            //acceptButton.onClick.AddListener(() => ReadInput());
+            //popup.SetActive(false);
         }
 
         // Se llama cuando el juego ha terminado
@@ -146,11 +143,7 @@ namespace UCM.IAV.Movimiento
             if (Input.GetKeyDown(KeyCode.F))
                 ChangeFrameRate();
             if (Input.GetKeyDown(KeyCode.N))
-                ChangeCameraView();
-            if (Input.GetKeyDown(KeyCode.E))
-                ShowPopup();
-            
-            
+                ChangeCameraView();    
 
         }
 
@@ -177,33 +170,6 @@ namespace UCM.IAV.Movimiento
 
  
             GameObject nuevaRata = Instantiate(rataPrefab, rataGO.transform);
-
-            Llegada llegada = nuevaRata.GetComponent<Llegada>();
-            if (llegada != null)
-            {
-                llegada.slowRadius = 10.0f;
-                llegada.targetRadius = 1.5f;
-                GameObject objetivo = GameObject.Find("Avatar");
-
-                if (objetivo != null)
-                {
-                    llegada.objetivo = objetivo;
-                }
-                else
-                {
-                    Debug.LogError("No se ha podido asignar el objetivo a la rata.");
-                }
-            }
-            Separacion separacion = nuevaRata.GetComponent<Separacion>();
-
-            if (separacion != null)
-            {
-                separacion.targEmpty = rataGO;
-            }
-            else
-            {
-                Debug.LogError("El componente 'Separacion' no se encontró en el objeto instanciado.");
-            }
 
             numRats++;
             ratText.text = numRats.ToString();
@@ -246,40 +212,6 @@ namespace UCM.IAV.Movimiento
             }
         }
 
-        void ShowPopup()
-        {
-            popup.SetActive(true);
-        }
-
-        void ReadInput()
-        {
-
-            if (int.TryParse(inputField.text, out int number))
-            {
-                Debug.Log("Número ingresado: " + number);
-                popup.SetActive(false);
-                changeNumberOfRats(number);
-            }
-        }
-        private void changeNumberOfRats(int n)
-        {
-            if (n >= 0)
-            {
-                //si son menos
-                while (numRats > n)
-                {
-                    DespawnRata();
-                    
-                }
-
-                //si son mas
-                while (numRats < n)
-                {
-                    SpawnRata();
-                }
-            }
-            
-        }
 
         public void ChangeCamera()
         {

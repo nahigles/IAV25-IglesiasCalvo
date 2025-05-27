@@ -32,7 +32,7 @@ namespace UCM.IAV.Movimiento
 
         public void Start()
         { 
-            enabled = false;
+          
         }
 
         public override ComportamientoDireccion GetComportamientoDireccion()
@@ -42,6 +42,7 @@ namespace UCM.IAV.Movimiento
             //Calcular direccion y distancia hasta el objetivo
             Vector3 direction = objetivo.transform.position - agente.transform.position;
             float distance = direction.magnitude;
+            
 
             //Velocidad actual del agente
             float speed = agente.velocidad.magnitude;
@@ -71,6 +72,7 @@ namespace UCM.IAV.Movimiento
                 //Recalcular direccion con la posicion predicha
                 direction = targetPosition - agente.transform.position;
                 distance = direction.magnitude;
+                Debug.Log("Direccion: " + direction);
             }
 
 
