@@ -1074,7 +1074,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Activar/Desactivar obst\xE1culos - T"
+  m_Text: "Activar/Desactivar m\xE9tricas - T"
 --- !u!222 &242048520
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1242,7 +1242,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Generar ratas - O / Eliminar ratas - P
+  m_Text: Generar abejas - O / Eliminar abejas - P
 --- !u!222 &259650671
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6705,7 +6705,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &445380944
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7674,6 +7674,43 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed43ef6bee9c3c94ebd3c074e5aa2f75, type: 3}
+--- !u!1 &672294967
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 672294968}
+  m_Layer: 5
+  m_Name: Metricas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &672294968
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 672294967}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1065645115}
+  - {fileID: 1435193173}
+  m_Father: {fileID: 1452594629}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &683987524
 GameObject:
   m_ObjectHideFlags: 0
@@ -14541,7 +14578,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1065645114}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
@@ -14551,11 +14588,11 @@ RectTransform:
   - {fileID: 1265027096}
   - {fileID: 525915399}
   - {fileID: 1942718251}
-  m_Father: {fileID: 1452594629}
+  m_Father: {fileID: 672294968}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 345, y: -35}
+  m_AnchoredPosition: {x: -5, y: 139.97107}
   m_SizeDelta: {x: 1468.4109, y: 202.1373}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1073723014 stripped
@@ -19412,7 +19449,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1075393290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25378,7 +25415,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1435193172}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
@@ -25389,11 +25426,11 @@ RectTransform:
   - {fileID: 1475024676}
   - {fileID: 101204895}
   - {fileID: 445380944}
-  m_Father: {fileID: 1452594629}
+  m_Father: {fileID: 672294968}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -126, y: -8}
+  m_AnchoredPosition: {x: 224, y: 166.97113}
   m_SizeDelta: {x: 258.60547, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &1435193174
@@ -25596,8 +25633,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1065645115}
-  - {fileID: 1435193173}
+  - {fileID: 672294968}
   - {fileID: 1130056939}
   - {fileID: 1901518389}
   - {fileID: 716940734}
@@ -25793,7 +25829,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1507771227
 Transform:
   m_ObjectHideFlags: 0
@@ -30723,8 +30759,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 214, y: -95.591125}
-  m_SizeDelta: {x: 428.8435, y: 199.6553}
+  m_AnchoredPosition: {x: 214, y: -87}
+  m_SizeDelta: {x: 428.8435, y: 174.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1540946001
 MonoBehaviour:
@@ -52733,11 +52769,6 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 144771709064956860, guid: f257940796e504f4eb42d847836e9ef8,
         type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 144771709064956860, guid: f257940796e504f4eb42d847836e9ef8,
-        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -52793,11 +52824,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 144771709064956863, guid: f257940796e504f4eb42d847836e9ef8,
         type: 3}
-      propertyPath: popup
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 144771709064956863, guid: f257940796e504f4eb42d847836e9ef8,
-        type: 3}
       propertyPath: fRText
       value: 
       objectReference: {fileID: 1942718252}
@@ -52815,13 +52841,7 @@ PrefabInstance:
         type: 3}
       propertyPath: scenario
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 144771709064956863, guid: f257940796e504f4eb42d847836e9ef8,
-        type: 3}
-      propertyPath: rataPrefab
-      value: 
-      objectReference: {fileID: 6132584917296139840, guid: 8f1381e9d58567740aeca324d049b10f,
-        type: 3}
+      objectReference: {fileID: 672294967}
     - target: {fileID: 144771709064956863, guid: f257940796e504f4eb42d847836e9ef8,
         type: 3}
       propertyPath: cameraCampo

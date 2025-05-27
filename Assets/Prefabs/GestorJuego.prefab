@@ -24,12 +24,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 144771709064956862}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &144771709064956863
 MonoBehaviour:
@@ -43,3 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c285827bcb0749c489edf5de9eb92770, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraCampo: {fileID: 0}
+  cameraColmena: {fileID: 0}
+  scenario: {fileID: 0}
+  rataPrefab: {fileID: 6132584917296139840, guid: 8f1381e9d58567740aeca324d049b10f,
+    type: 3}
+  lluvia: {fileID: 0}
+  entradaColmena: {fileID: 0}
+  fRText: {fileID: 0}
+  ratText: {fileID: 0}

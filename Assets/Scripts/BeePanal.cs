@@ -36,7 +36,7 @@ public class BeePanal : MonoBehaviour
             // Si ha pasado el tiempo para ir a la flor
             if (t <= actualT)
             {
-                myTransform.position = salidaColmena.transform.position + initialPos;
+                myTransform.position = salidaColmena.transform.position;
                 myTransform.rotation = salidaColmena.transform.rotation;
 
                 // Activo agente y llegada

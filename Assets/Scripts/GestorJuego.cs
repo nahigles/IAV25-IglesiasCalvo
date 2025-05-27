@@ -91,6 +91,13 @@ namespace UCM.IAV.Movimiento
             rataGO = GameObject.Find("Abejas");
             ratText = GameObject.Find("NumAbejas").GetComponent<Text>();
             fRText = GameObject.Find("Framerate").GetComponent<Text>();
+            scenario = GameObject.Find("Metricas");
+            cameraCampo = GameObject.Find("Camara");
+            cameraColmena = GameObject.Find("Camera2");
+            cameraColmena.SetActive(false);
+            lluvia = GameObject.Find("Lluvia");
+            lluvia.SetActive(false);
+            entradaColmena = GameObject.Find("TriggerEntrada");
             numRats = rataGO.transform.childCount;
             ratText.text = numRats.ToString();
 
@@ -142,9 +149,7 @@ namespace UCM.IAV.Movimiento
             if (Input.GetKeyDown(KeyCode.P))
                 DespawnRata();
             if (Input.GetKeyDown(KeyCode.F))
-                ChangeFrameRate();
-            if (Input.GetKeyDown(KeyCode.N))
-                ChangeCameraView();    
+                ChangeFrameRate();  
 
         }
 
